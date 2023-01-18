@@ -1,0 +1,135 @@
+Answers:
+1) 
+create table semp
+(
+EMPNO CHAR(4),
+EMPNAME CHAR(20),
+BASIC FLOAT,
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+
+2)
+create table sdept
+(
+deptno char(2),
+deptname char(15)
+);
+
+
+3)
+insert into sdept
+Values(10,'Development');
+insert into sdept
+Values(20,'Training');
+
+
+4)
+insert into semp
+Values(0001,'SUNIL',6000,10,null),(0002,'HIREN',8000,20,null),
+(0003,'ALI',4000,10,0001),(0004,'GEORGE',6000,null,0002);
+
+create table S
+(
+Sno char(2),
+Sname char(5),
+Status varchar(5),
+City varchar(10)
+);
+
+create table P
+(
+Pno char(2),
+Pname char(5),
+Color char(8),
+Weight char(3),
+City varchar(10)
+);
+
+create table J
+(
+Jno char(2),
+Jname varchar(5),
+City varchar(10)
+);
+
+create table SPJ
+(
+Sno char(2),
+Pno char(2),
+Jno char(2),
+QTY char(3)
+);
+
+insert into s Values
+('S1', 'Sachi', 10, 'London'),
+('S2', 'Virat', 11, 'Paris'),
+('S3', 'Sehwg', 12, 'Athens'),
+('S4', 'Yvraj', 13, 'Paris'),
+('S5', 'Dhoni', 14, 'Athens'),
+('S6', 'Gambr', 20, 'Mumbai'),
+('S7', 'Warnr', 60, 'Athens'),
+('S8', 'Roy', 70, 'Paris'),
+('S9', 'Flntf', 80, 'Paris')
+
+insert into p Values
+('P1', 'comp','Black',500,'Athens'),
+('P2', 'Pen','Blue',400,'Paris'),
+('P3', 'CPU','red',600,'Mumbai'),
+('P4', 'key','green',800,'London'),
+('P5', 'book','red',100,'Delhi'),
+('P6', 'Note','Black',120,'Culcatta'),
+('P7', 'chair','Blue',140,'London'),
+('P8', 'logo','white',160,'Athens'),
+('P9', 'mob','Black',180,'London')
+insert into p Values
+('pa','chrg','black',12,'Athens'),
+('pb','ball','blue',13,'London'),
+('pc','bat','red',14,'Paris')
+
+
+insert into j Values
+('J1', 'Pjt1','Delhi'),
+('J2', 'Pjt2','Mumbai'),
+('J3', 'Pjt3','Goa'),
+('J4', 'Pjt4','Bombay'),
+('J5', 'Pjt5','London'),
+('J6', 'Pjt6','Athens'),
+('J7', 'Pjt7','Paris'),
+('J8', 'Pjt8','Athens'),
+('J9', 'Pjt9','London')
+
+insert into spj Values
+('S1','P1','J1',10),
+('S2','P2','J7',20),
+('S3','P4','J8',30),
+('S4','P8','J9',40),
+('S5','P5','J4',50),
+('S6','P6','J6',60),
+('S7','P9','J2',70),
+('S8','P4','J3',80),
+('S9','P2','J7',100)
+
+
+5) select * from s;
+
+6)select sno,sname from s;
+
+7)select pname,color from p where city = 'London';
+
+8)select * from s where city = 'London';
+
+9)select * from s where city = 'London' or city='Paris';
+
+10)select * from j where city='Athens';
+
+11)select pname from p where weight >= 12 and Weight <= 14;
+
+12)select * from s where status >= 20;
+
+13)select * from s where city != 'London';
+
+14)select distinct city from s;
+
+15)select weight*1000 'MiliGrams', weight/1000 'KiloGrams'  from p;

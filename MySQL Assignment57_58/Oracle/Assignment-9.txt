@@ -1,0 +1,64 @@
+1) Write a query that lists each order number followed by the name of the customer who made the order.
+Answer- select onum, cname from r2728_orders, r2728_customers where r2728_orders.snum=r2728_customers.snum; 
+
+      ONUM CNAME
+---------- ----------
+      3001 Cisneros
+      3003 Clemens
+      3003 Hoffman
+      3002 Pereira
+      3005 Grass
+      3005 Liu
+      3006 Cisneros
+      3009 Giovanni
+      3007 Grass
+      3007 Liu
+      3008 Clemens
+      3008 Hoffman
+      3010 Grass
+      3010 Liu
+      3011 Clemens
+      3011 Hoffman
+
+2) Write a query that gives the names of both the salesperson and the customer for each order along with the order number.
+Answer - select onum,cname"CUSTOMER NAME",sname"SALESPERSON NAME" from r2728_orders,r2728_customers,r2728_salespeople where r2728_orders.snum = r2728_customers.snum and r2728_orders.snum = r2728_salespeople.snum;
+
+      ONUM CUSTOMER N SALESPERSO
+---------- ---------- ----------
+      3011 Hoffman    Peel
+      3008 Hoffman    Peel
+      3003 Hoffman    Peel
+      3009 Giovanni   Axelrod
+      3010 Liu        Serres
+      3007 Liu        Serres
+      3005 Liu        Serres
+      3010 Grass      Serres
+      3007 Grass      Serres
+      3005 Grass      Serres
+      3011 Clemens    Peel
+      3008 Clemens    Peel
+      3003 Clemens    Peel
+      3006 Cisneros   Rifkin
+      3001 Cisneros   Rifkin
+      3002 Pereira    Motika
+
+3) Write a query that produces all customers serviced by salespeople with a commission above 12%. Output the customer’s name, the salesperson’s name, and the salesperson’s rate of commission.
+Answer- select cname,sname,comm from r2728_customers,r2728_salespeople where r2728_salespeople.snum=r2728_customers.snum and comm> .12;
+
+CNAME      SNAME            COMM
+---------- ---------- ----------
+Liu        Serres            .13
+Grass      Serres            .13
+Cisneros   Rifkin            .15
+
+4) Write a query that calculates the amount of the salesperson’s commission on each order by a customer with a rating above 100.
+Answer- select distinct onum, amt*comm"AMT OF COMMISION" from  r2728_orders,r2728_customers,r2728_salespeople where r2728_orders.snum = r2728_salespeople.snum and r2728_orders.snum = r2728_customers.snum and rating > 100;
+
+      ONUM AMT OF COMMISION
+---------- ----------------
+      3007           9.8475
+      3009          171.323
+      3010         170.2935
+      3001           2.8035
+      3005         670.8585
+      3006          164.724

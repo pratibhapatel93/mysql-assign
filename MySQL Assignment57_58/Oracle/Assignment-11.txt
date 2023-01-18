@@ -1,0 +1,28 @@
+
+1) Write a query that uses a subquery to obtain all orders for the customer named Cisneros. Assume you do not know his customer number (cnum).
+Answer- select * from r2728_orders where cnum = (select cnum from r2728_customers where cname='Cisneros');
+
+      ONUM        AMT ODATE           CNUM       SNUM
+---------- ---------- --------- ---------- ----------
+      3001      18.69 03-OCT-90       2008       1007
+      3006    1098.16 03-OCT-90       2008       1007
+
+
+	
+2) Write a query that produces the names and ratings of all customers who have above-average orders.
+
+Answer-  select cname, rating from r2728_customers where snum in(select snum from r2728_orders where amt > (select avg(amt) from r2728_orders));
+
+CNAME          RATING
+---------- ----------
+Grass             300
+Liu               200
+Clemens           100
+Hoffman           100
+
+
+
+3) Write a query that selects the total amount in orders for each salesperson for whom this total is greater than the amount of the largest order in the table.
+Answer- select sum(amt), r2728_salespeople.sname from r2728_orders,r2728_salespeople where r2728_orders.snum in(select snum from r2728_orders where amt in(select amt from r2728_orders where amt = (select max(amt) from r2728_orders)));
+
+select sum(amt), r2728_salespeople.sname from r2728_orders,r2728_salespeople where r2728_orders.snum in(select snum from r2728_orders where amt = (select max(amt) from r2728_orders));

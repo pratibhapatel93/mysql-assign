@@ -1,0 +1,15 @@
+Answers:
+
+1) select * from s order by city desc;
+
+2)select * from p order by city, pname;
+
+3)select * from s where status >10 and status <20;
+
+4)select pname, weight from p where weight<10 or weight>15;
+
+5)SELECT * FROM s WHERE sNAME LIKE 's%';
+
+6)SELECT * FROM s WHERE city LIKE 'L%';
+
+7)select * from j where jname like '__n%';

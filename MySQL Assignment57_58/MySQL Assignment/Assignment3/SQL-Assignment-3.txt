@@ -1,0 +1,22 @@
+Answers:-
+1)
+select concat(upper(substr(sname,1,1)), lower(substr(sname,2))) from s;
+
+2) select upper(Sname) from s;
+
+3) select lower(Sname) from s;
+
+4) select lpad(Sname,25,' ') from s;
+
+5) select replace(Sname,"la","ro") from S;
+
+6) select replace(replace(Sname,'l','r'),'a','o') from s;
+
+7) SELECT SName, LENGTH(SName) AS LengthOfName
+FROM S;
+
+8) SELECT * from S where SOUNDEX(Sname)=SOUNDEX('BLOKE'); 
+
+9) 
+
+10) SELECT CURDATE() AS Today;
